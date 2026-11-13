@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Carga la barra — Qué es CrossFit</title>
   <meta name="description" content="Una guía visual para entender CrossFit: qué es, cómo se arma un WOD, sus formatos, sus movimientos y por qué cualquier nivel puede empezar.">
-  <meta name="theme-color" content="#141517">
+  <meta name="theme-color" content="#f1eee7">
   <link rel="preload" href="fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/archivo-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23d7262e'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23141517'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%23c9ccd1'/%3E%3C/svg%3E">
@@ -15,7 +15,7 @@
   <a class="skip" href="#contenido">Saltar al contenido</a>
 
   <header class="top">
-    <a class="mark" href="#" aria-label="Carga la barra, inicio">
+    <a class="mark" href="#contenido" aria-label="Carga la barra, inicio">
       <svg viewBox="0 0 40 16" aria-hidden="true"><rect x="0" y="7" width="40" height="2" rx="1"/><rect x="5" y="1" width="5" height="14" rx="1.5" class="p-red"/><rect x="30" y="1" width="5" height="14" rx="1.5" class="p-red"/></svg>
       <span>Carga la barra</span>
     </a>
@@ -33,6 +33,7 @@
     <!-- HERO: la barra -->
     <section class="hero" aria-labelledby="hero-title">
       <h1 id="hero-title">El mismo entrenamiento.<br>Cada quien carga <span class="u">su</span> barra.</h1>
+      <p class="hero-def" id="que-es"><strong>CrossFit</strong> es un método de entrenamiento que mezcla pesas, gimnasia y cardio en sesiones cortas e intensas que cambian cada día.</p>
 
       <figure class="bar-stage">
         <svg id="barbell" viewBox="0 0 1200 230" role="img" aria-labelledby="bar-desc">
@@ -51,20 +52,27 @@
           <g id="plates-left"></g>
           <g id="plates-right"></g>
         </svg>
-        <figcaption class="readout" aria-live="polite">
-          <span class="readout-total"><b id="total">42,5</b> kg</span>
-          <span id="readout-detail" class="readout-detail">Barra de 20 kg + 10 kg + 1,25 kg por lado</span>
+        <figcaption class="readout">
+          <span class="readout-live" aria-live="polite">
+            <span class="readout-total"><b id="total">42,5</b> kg</span>
+            <span id="readout-detail" class="readout-detail">Barra de 20 kg + 10 kg + 1,25 kg por lado</span>
+          </span>
+          <span class="plates-legend">
+            <span class="legend-text">Color de cada disco, en kg:</span>
+            <span class="pl pl-25">25</span><span class="pl pl-20">20</span><span class="pl pl-15">15</span><span class="pl pl-10">10</span><span class="pl pl-5">5</span><span class="pl pl-125">1,25</span>
+          </span>
         </figcaption>
       </figure>
 
-      <div class="level-pick" role="radiogroup" aria-label="Elige un nivel">
-        <button role="radio" aria-checked="false" data-set-level="inicial"><span>Inicial</span><small>primera semana</small></button>
-        <button role="radio" aria-checked="false" data-set-level="escalado"><span>Escalado</span><small>unos meses</small></button>
-        <button role="radio" aria-checked="true" data-set-level="rx"><span>RX</span><small>como está escrito</small></button>
+      <p class="level-cue" id="level-cue">Elige un nivel y mira cómo cambia la barra</p>
+      <div class="level-pick" role="radiogroup" aria-labelledby="level-cue">
+        <button role="radio" aria-checked="false" data-set-level="inicial"><span>Inicial</span><small><span class="sr-only">, </span>primera semana</small></button>
+        <button role="radio" aria-checked="false" data-set-level="escalado"><span>Escalado</span><small><span class="sr-only">, </span>unos meses</small></button>
+        <button role="radio" aria-checked="true" data-set-level="rx"><span>RX</span><small><span class="sr-only">, </span>sin adaptar</small></button>
       </div>
 
-      <p class="lede" id="que-es">
-        <strong>CrossFit</strong> es un método de entrenamiento que mezcla levantamiento de pesas, gimnasia y cardio en sesiones cortas e intensas que cambian cada día. Lo que lo hace distinto no es la dureza: es que <em>todos hacen el mismo entrenamiento</em> y cada persona ajusta el peso, las repeticiones o el movimiento a su nivel. Cambia el nivel arriba y mira cómo se transforma la barra.
+      <p class="lede">
+        Lo que hace distinto a CrossFit no es la dureza: es que <em>todos hacen el mismo entrenamiento</em> y cada persona ajusta el peso, las repeticiones o el movimiento a su nivel. Hacerlo <b>RX</b> es hacerlo tal como está escrito; <b>escalado</b> es la versión adaptada a ti.
       </p>
     </section>
 
@@ -72,10 +80,17 @@
     <section class="wod" id="wod" aria-labelledby="wod-title">
       <div class="wod-head">
         <h2 id="wod-title">El WOD: el entrenamiento del día</h2>
-        <p>Cada clase gira alrededor de un <b>WOD</b> (<i lang="en">Workout of the Day</i>). Algunos son tan conocidos que tienen nombre propio. Este es <b>“Fran”</b>, uno de los más famosos: corto, simple de escribir y brutal de terminar.</p>
+        <p>Cada clase gira alrededor de un <b>WOD</b>, la sigla en inglés de “entrenamiento del día”. Algunos son tan conocidos que tienen nombre propio. Este es <b>“Fran”</b>, uno de los más famosos: corto, simple de escribir y brutal de terminar.</p>
+        <p>El <b>thruster</b> es una sentadilla con la barra en los hombros que termina empujándola por encima de la cabeza, en un solo movimiento.</p>
       </div>
 
       <div class="wod-board">
+        <div class="level-mini" role="radiogroup" aria-labelledby="level-mini-label">
+          <span class="level-mini-label" id="level-mini-label">Ver Fran en nivel</span>
+          <button role="radio" aria-checked="false" data-set-level="inicial">Inicial</button>
+          <button role="radio" aria-checked="false" data-set-level="escalado">Escalado</button>
+          <button role="radio" aria-checked="true" data-set-level="rx">RX</button>
+        </div>
         <div class="wod-name">
           <span class="wod-title">Fran</span>
           <span class="wod-type">Por tiempo</span>
@@ -89,12 +104,12 @@
             <tr><th scope="col">Movimiento</th><th scope="col" data-col="inicial">Inicial</th><th scope="col" data-col="escalado">Escalado</th><th scope="col" data-col="rx">RX</th></tr>
           </thead>
           <tbody>
-            <tr><th scope="row">Thruster</th><td data-col="inicial">15 kg <small>barra técnica</small></td><td data-col="escalado">30 kg</td><td data-col="rx">43 kg <small>(29 kg mujeres)</small></td></tr>
+            <tr><th scope="row">Thruster</th><td data-col="inicial">15 kg <small>barra técnica</small></td><td data-col="escalado">30 kg</td><td data-col="rx">42,5 kg <small>mujeres: 30 kg</small></td></tr>
             <tr><th scope="row">Tirón</th><td data-col="inicial">Remo en anillas</td><td data-col="escalado">Dominadas con banda</td><td data-col="rx">Dominadas</td></tr>
-            <tr><th scope="row">Repeticiones</th><td data-col="inicial">15 · 12 · 9</td><td data-col="escalado">21 · 15 · 9</td><td data-col="rx">21 · 15 · 9</td></tr>
+            <tr><th scope="row">Repeticiones</th><td data-col="inicial">15 — 12 — 9</td><td data-col="escalado">21 — 15 — 9</td><td data-col="rx">21 — 15 — 9</td></tr>
           </tbody>
         </table>
-        <p class="wod-note" id="wod-note">Así está escrito: haces 21 thrusters y 21 dominadas, luego 15 y 15, luego 9 y 9. El reloj corre hasta que termines.</p>
+        <p class="wod-note" id="wod-note" aria-live="polite">Así está escrito: haces 21 thrusters y 21 dominadas, luego 15 y 15, luego 9 y 9. El reloj corre hasta que termines.</p>
       </div>
     </section>
 
@@ -105,21 +120,21 @@
 
       <dl class="format-list">
         <div class="format">
-          <dt>For Time <span>Por tiempo</span></dt>
+          <dt>Por tiempo <span>Trabajo fijo, contra el reloj</span></dt>
           <dd>
-            <p>Un trabajo fijo, lo más rápido posible. Tu marca es el tiempo que tardaste.</p>
+            <p>Un trabajo fijo, lo más rápido posible. Tu marca es el tiempo que tardaste. Fran es así.</p>
             <svg class="tl" viewBox="0 0 600 28" aria-hidden="true"><rect x="0" y="8" width="430" height="12" class="t-on"/><rect x="430" y="8" width="170" height="12" class="t-off"/><rect x="428" y="2" width="4" height="24" class="t-mark"/></svg>
           </dd>
         </div>
         <div class="format">
-          <dt>AMRAP <span>Tantas rondas como puedas</span></dt>
+          <dt>Rondas al máximo <span>Tiempo fijo, todas las rondas que puedas</span></dt>
           <dd>
             <p>El tiempo es fijo (por ejemplo, 20 minutos); tu marca es cuántas rondas completaste. “Cindy” es así: 5 dominadas, 10 flexiones y 15 sentadillas, repetidas durante 20 minutos.</p>
             <svg class="tl" viewBox="0 0 600 28" aria-hidden="true"><g class="t-rounds"><rect x="0" y="8" width="92" height="12"/><rect x="96" y="8" width="92" height="12"/><rect x="192" y="8" width="92" height="12"/><rect x="288" y="8" width="92" height="12"/><rect x="384" y="8" width="92" height="12"/><rect x="480" y="8" width="92" height="12"/><rect x="576" y="8" width="24" height="12" class="t-part"/></g></svg>
           </dd>
         </div>
         <div class="format">
-          <dt>EMOM <span>Cada minuto, en el minuto</span></dt>
+          <dt>Cada minuto <span>Una tarea al inicio de cada minuto</span></dt>
           <dd>
             <p>Al inicio de cada minuto haces una tarea; lo que sobre del minuto es tu descanso. Si eres lento, descansas menos.</p>
             <svg class="tl" viewBox="0 0 600 28" aria-hidden="true"><g><rect x="0" y="8" width="70" height="12" class="t-on"/><rect x="70" y="8" width="50" height="12" class="t-off"/><rect x="120" y="8" width="70" height="12" class="t-on"/><rect x="190" y="8" width="50" height="12" class="t-off"/><rect x="240" y="8" width="70" height="12" class="t-on"/><rect x="310" y="8" width="50" height="12" class="t-off"/><rect x="360" y="8" width="70" height="12" class="t-on"/><rect x="430" y="8" width="50" height="12" class="t-off"/><rect x="480" y="8" width="70" height="12" class="t-on"/><rect x="550" y="8" width="50" height="12" class="t-off"/></g></svg>
@@ -128,7 +143,7 @@
         <div class="format">
           <dt>Tabata <span>20 segundos de trabajo, 10 de descanso</span></dt>
           <dd>
-            <p>Ocho rondas de 20 s a fondo y 10 s de pausa: cuatro minutos que se sienten mucho más largos.</p>
+            <p>Ocho rondas de 20 segundos a fondo y 10 de pausa: cuatro minutos que se sienten mucho más largos.</p>
             <svg class="tl" viewBox="0 0 600 28" aria-hidden="true"><g><rect x="0" y="8" width="50" height="12" class="t-on"/><rect x="50" y="8" width="25" height="12" class="t-off"/><rect x="75" y="8" width="50" height="12" class="t-on"/><rect x="125" y="8" width="25" height="12" class="t-off"/><rect x="150" y="8" width="50" height="12" class="t-on"/><rect x="200" y="8" width="25" height="12" class="t-off"/><rect x="225" y="8" width="50" height="12" class="t-on"/><rect x="275" y="8" width="25" height="12" class="t-off"/><rect x="300" y="8" width="50" height="12" class="t-on"/><rect x="350" y="8" width="25" height="12" class="t-off"/><rect x="375" y="8" width="50" height="12" class="t-on"/><rect x="425" y="8" width="25" height="12" class="t-off"/><rect x="450" y="8" width="50" height="12" class="t-on"/><rect x="500" y="8" width="25" height="12" class="t-off"/><rect x="525" y="8" width="50" height="12" class="t-on"/><rect x="575" y="8" width="25" height="12" class="t-off"/></g></svg>
           </dd>
         </div>
@@ -143,18 +158,18 @@
       <div class="families">
         <article class="family f-w">
           <h3>Halterofilia</h3>
-          <p>Mover peso externo: barras, mancuernas, kettlebells. Construye fuerza y potencia.</p>
-          <ul><li>Sentadilla</li><li>Peso muerto</li><li>Thruster</li><li>Clean</li><li>Snatch</li><li>Swing con kettlebell</li></ul>
+          <p>Mover peso externo: barras, mancuernas, pesas rusas. Construye fuerza y potencia.</p>
+          <ul><li>Sentadilla</li><li>Peso muerto</li><li>Thruster</li><li>Cargada</li><li>Arranque</li><li>Swing con pesa rusa</li></ul>
         </article>
         <article class="family f-g">
           <h3>Gimnasia</h3>
           <p>Controlar tu propio cuerpo. Desarrolla coordinación, equilibrio y fuerza relativa.</p>
-          <ul><li>Dominadas</li><li>Flexiones</li><li>Fondos en anillas</li><li>Pino (handstand)</li><li>Toes to bar</li><li>Muscle-up</li></ul>
+          <ul><li>Dominadas</li><li>Flexiones</li><li>Fondos en anillas</li><li>Pino</li><li>Pies a la barra</li><li>Subida a la barra</li></ul>
         </article>
         <article class="family f-m">
           <h3>Monoestructural</h3>
           <p>El cardio: un mismo gesto repetido durante mucho tiempo. Entrena el motor.</p>
-          <ul><li>Correr</li><li>Remo</li><li>Bicicleta de aire</li><li>Saltar la cuerda</li><li>Doble salto (double under)</li></ul>
+          <ul><li>Correr</li><li>Remo</li><li>Bicicleta de aire</li><li>Saltar la cuerda</li><li>Doble salto</li></ul>
         </article>
       </div>
     </section>
@@ -162,25 +177,25 @@
     <!-- CLASE -->
     <section class="class" id="clase" aria-labelledby="class-title">
       <h2 id="class-title">Una hora en el box</h2>
-      <p class="section-lede">Al gimnasio de CrossFit se le llama <b>box</b>. Las clases son grupales, con un coach, y casi siempre siguen esta forma:</p>
+      <p class="section-lede">Al gimnasio de CrossFit se le llama <b>box</b>. Las clases son grupales, con un entrenador, y casi siempre siguen esta forma:</p>
 
       <div class="hour" role="list">
-        <div class="seg s-warm" role="listitem" style="--m:15">
+        <div class="seg s-warm" role="listitem">
           <span class="seg-min">15 min</span>
           <span class="seg-name">Calentamiento</span>
           <span class="seg-text">Movilidad y versiones ligeras de los movimientos del día.</span>
         </div>
-        <div class="seg s-skill" role="listitem" style="--m:20">
+        <div class="seg s-skill" role="listitem">
           <span class="seg-min">20 min</span>
           <span class="seg-name">Técnica o fuerza</span>
           <span class="seg-text">Se aprende o se practica un levantamiento con calma.</span>
         </div>
-        <div class="seg s-wod" role="listitem" style="--m:15">
+        <div class="seg s-wod" role="listitem">
           <span class="seg-min">10–20 min</span>
           <span class="seg-name">WOD</span>
           <span class="seg-text">La parte intensa. Cada quien con su versión.</span>
         </div>
-        <div class="seg s-cool" role="listitem" style="--m:10">
+        <div class="seg s-cool" role="listitem">
           <span class="seg-min">10 min</span>
           <span class="seg-name">Vuelta a la calma</span>
           <span class="seg-text">Estiramientos y anotar tu marca en la pizarra.</span>
@@ -191,16 +206,21 @@
     <!-- GLOSARIO -->
     <section class="glossary" id="glosario" aria-labelledby="glossary-title">
       <h2 id="glossary-title">Para entender la pizarra</h2>
+      <p class="section-lede">En el box vas a oír muchas palabras en inglés. Estas son las que más se repiten, en el orden en que aparecen en esta página.</p>
       <dl class="terms">
-        <div><dt>Box</dt><dd>El gimnasio donde se practica CrossFit.</dd></div>
-        <div><dt>WOD</dt><dd>El entrenamiento del día.</dd></div>
         <div><dt>RX</dt><dd>Hacer el WOD tal como está escrito, sin adaptar nada.</dd></div>
-        <div><dt>Scaled</dt><dd>La versión adaptada del WOD a tu nivel.</dd></div>
+        <div><dt>Escalado</dt><dd>La versión del WOD adaptada a tu nivel. En inglés, <i lang="en">scaled</i>.</dd></div>
+        <div><dt>WOD</dt><dd>El entrenamiento del día (<i lang="en">Workout of the Day</i>).</dd></div>
+        <div><dt>Thruster</dt><dd>Sentadilla con la barra en los hombros que termina empujándola sobre la cabeza.</dd></div>
+        <div><dt>For Time</dt><dd>“Por tiempo”: un trabajo fijo, lo más rápido posible.</dd></div>
+        <div><dt>AMRAP</dt><dd>“Tantas rondas como puedas” en un tiempo fijo.</dd></div>
+        <div><dt>EMOM</dt><dd>“Cada minuto, en el minuto”: una tarea al inicio de cada minuto.</dd></div>
+        <div><dt>Box</dt><dd>El gimnasio donde se practica CrossFit.</dd></div>
         <div><dt>Metcon</dt><dd>Acondicionamiento metabólico: un trabajo intenso y continuo.</dd></div>
-        <div><dt>PR</dt><dd>Récord personal. Se celebra en voz alta.</dd></div>
+        <div><dt>Murph</dt><dd>Un WOD de héroe: 1,6 km de carrera, 100 dominadas, 200 flexiones, 300 sentadillas y otros 1,6 km. Casi todos lo hacen escalado.</dd></div>
         <div><dt>Kipping</dt><dd>Usar el balanceo del cuerpo para hacer dominadas más eficientes.</dd></div>
-        <div><dt>Chalk</dt><dd>Magnesio en polvo para que la barra no resbale.</dd></div>
-        <div><dt>Murph</dt><dd>Un WOD de héroe: 1,6 km de carrera, 100 dominadas, 200 flexiones, 300 sentadillas y otros 1,6 km.</dd></div>
+        <div><dt>PR</dt><dd>Récord personal. Se celebra en voz alta.</dd></div>
+        <div><dt>Magnesio</dt><dd>Polvo blanco para las manos, para que la barra no resbale. En inglés, <i lang="en">chalk</i>.</dd></div>
         <div><dt>The Open</dt><dd>La competencia anual en línea donde cualquiera puede participar desde su box.</dd></div>
       </dl>
     </section>
@@ -208,8 +228,8 @@
     <!-- CIERRE -->
     <section class="close" aria-labelledby="close-title">
       <h2 id="close-title">No necesitas estar en forma para empezar.<br>Empiezas para estarlo.</h2>
-      <p>La primera clase casi siempre es con barra vacía o con un palo de PVC. Lo importante es aprender bien el movimiento; el peso llega solo.</p>
-      <a class="cta" href="https://map.crossfit.com" target="_blank" rel="noopener">Buscar un box cerca de ti <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10M11 5l5 5-5 5"/></svg></a>
+      <p>La primera clase casi siempre es con barra vacía o con un palo de PVC. Lo importante es aprender bien el movimiento; el peso llega con el tiempo.</p>
+      <a class="cta" href="https://map.crossfit.com" target="_blank" rel="noopener">Buscar un box cerca de ti<span class="sr-only"> (se abre en otra pestaña)</span> <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10M11 5l5 5-5 5"/></svg></a>
     </section>
   </main>
 
@@ -221,10 +241,6 @@
       <div><dt>Docente</dt><dd>Juan Carlos Isaza</dd></div>
     </dl>
     <p>Proyecto académico de Informática. Página independiente y educativa: no está afiliada a CrossFit, LLC. CrossFit® es una marca registrada de CrossFit, LLC.</p>
-    <p class="plates-legend" aria-label="Código de colores de discos">
-      <span class="pl pl-25">25</span><span class="pl pl-20">20</span><span class="pl pl-15">15</span><span class="pl pl-10">10</span><span class="pl pl-5">5</span>
-      <span class="legend-text">El código de colores de los discos olímpicos, en kg.</span>
-    </p>
   </footer>
 
   <script src="script.js"></script>

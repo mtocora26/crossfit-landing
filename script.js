@@ -4,7 +4,7 @@ const PLATES = {
   // kg: [ancho, alto, color, color del número]
   10: { w: 34, h: 196, fill: "#22713c", text: "#ffffff" },
   5: { w: 26, h: 196, fill: "#fbfaf7", text: "#141517", stroke: "#cfc9bd" },
-  1.25: { w: 14, h: 92, fill: "#c9ccd1", text: null }
+  1.25: { w: 14, h: 92, fill: "#4a4f56", text: null, stroke: "#26282c" }
 };
 
 const LEVELS = {
@@ -38,7 +38,9 @@ const total = document.getElementById("total");
 const detail = document.getElementById("readout-detail");
 const note = document.getElementById("wod-note");
 const reps = [1, 2, 3].map((n) => document.getElementById(`rep-${n}`));
-const buttons = [...document.querySelectorAll("[data-set-level]")];
+const groups = [...document.querySelectorAll('[role="radiogroup"]')]
+  .map((g) => [...g.querySelectorAll("[data-set-level]")]);
+const buttons = groups.flat();
 
 const CENTER_Y = 115;
 const LEFT_START = 204;  // cara interna del collarín izquierdo
@@ -122,26 +124,29 @@ function loadBar(level) {
   data.reps.forEach((v, i) => (reps[i].textContent = v));
 }
 
-function setLevel(level, focus = false) {
+// Los dos selectores (hero y pizarra del WOD) comparten el mismo nivel.
+function setLevel(level, focusIn = null) {
   document.body.dataset.level = level;
   buttons.forEach((b) => {
     const on = b.dataset.setLevel === level;
     b.setAttribute("aria-checked", on);
     b.tabIndex = on ? 0 : -1;
-    if (on && focus) b.focus();
   });
+  if (focusIn) focusIn.find((b) => b.dataset.setLevel === level).focus();
   loadBar(level);
 }
 
-buttons.forEach((b, i) => {
-  b.addEventListener("click", () => setLevel(b.dataset.setLevel));
-  b.addEventListener("keydown", (e) => {
-    const step = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1
-      : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
-    if (!step) return;
-    e.preventDefault();
-    const next = buttons[(i + step + buttons.length) % buttons.length];
-    setLevel(next.dataset.setLevel, true);
+groups.forEach((group) => {
+  group.forEach((b, i) => {
+    b.addEventListener("click", () => setLevel(b.dataset.setLevel));
+    b.addEventListener("keydown", (e) => {
+      const step = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1
+        : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
+      if (!step) return;
+      e.preventDefault();
+      const next = group[(i + step + group.length) % group.length];
+      setLevel(next.dataset.setLevel, group);
+    });
   });
 });
 
@@ -153,3 +158,19 @@ const narrow = window.matchMedia("(max-width: 640px)");
 const fitView = () => svg.setAttribute("viewBox", narrow.matches ? "95 15 1010 200" : "0 0 1200 230");
 narrow.addEventListener("change", fitView);
 fitView();
+
+// Marca en el menú la sección que se está leyendo.
+const navLinks = [...document.querySelectorAll(".top nav a")];
+const sectionFor = (a) => document.querySelector(a.getAttribute("href")).closest("section");
+const seen = new Map();
+const spy = new IntersectionObserver((entries) => {
+  entries.forEach((e) => seen.set(e.target, e.isIntersecting));
+  const current = navLinks.find((a) => seen.get(sectionFor(a)));
+  navLinks.forEach((a) => {
+    if (a === current) {
+      a.setAttribute("aria-current", "true");
+      if (narrow.matches) a.parentElement.scrollTo({ left: a.offsetLeft - 24 });
+    } else a.removeAttribute("aria-current");
+  });
+}, { rootMargin: "-45% 0px -50% 0px" });
+navLinks.forEach((a) => spy.observe(sectionFor(a)));

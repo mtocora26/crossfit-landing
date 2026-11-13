@@ -12,7 +12,7 @@ Static HTML/CSS/JS (no build step), deployed to GitHub Pages. Delegated: plain s
 
 ## Users
 
-Students, classmates and the professor of a university informatics course, plus any curious visitor who has heard of CrossFit but doesn't really know what it is. They arrive from a shared GitHub Pages link, usually on a phone or laptop.
+8th-grade students (grade 8A, INSTICALDAS, ages ~13–14) and their Informática teacher, Juan Carlos Isaza, who grades the page; plus any curious visitor who has heard of CrossFit but doesn't really know what it is. They arrive from a shared GitHub Pages link, usually on a phone or laptop. Author: María José Puentes Ballesteros (credited in the footer).
 
 ## Product Purpose
 
@@ -24,7 +24,7 @@ Explains CrossFit through its own native language: the WOD whiteboard, the scali
 
 ## Capabilities and Constraints
 
-- Spanish-language content.
+- Spanish-language content. Terminology rule: use Spanish everywhere (Escalado, Por tiempo, Cargada…); English CrossFit jargon appears only in the glossary, except names with no Spanish equivalent (WOD, RX, box, thruster), which are defined where first used.
 - Single page, informative; primary action is understanding, secondary is "try a class at a box near you" (link to the official affiliate finder).
 - Must work on GitHub Pages (relative paths, no server).
 
